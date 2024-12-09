@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi tienda de Videojuegos Online</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+
+<body>
+    <header class=" text-center text-white py-3 position-relative">
+        <img id="icono" src="./images/Player.jpg" alt="User Icon" class="user-icon">
+        <span class="h2">🎮Tree-Games Online</span>
+        <button class="btn btn-secondary mx-2 my-2" onclick="window.location.href='carrito.html';">Ir al carrito</button>
+        <input id="correo" type="search" placeholder="playerone@gomail.com" class="form-control mb-2">
+    </header>
+
+    <section class="indice container-fluid text-center" id="contenedor">
+        <button onclick="volverArriba()" id="btnVolverArriba" title="Volver Arriba">↑</button>
+        <div class="row justify-content-center my-3">
+            <div id="filtros1" class="col-md-3 filtros">
+                <h4 class="mb-3">Busca tus Juegos Aquí 👇</h4>
+                <input type="search" v-model="filtros.nombre" placeholder="Buscar por nombre" class="form-control mb-2">
+                <select v-model="filtros.genero" class="form-control mb-2">
+                    <option value="">Buscar por género</option>
+                    <option v-for="genero in generos" :key="genero" :value="genero">{{ genero }}</option>
+                </select>
+            </div>
+        </div>
+        <div v-if="categoriaSeleccionada" class="row justify-content-center mb-3">
+            <h2 class="col-12 text-white mb-2">Categoría: {{ categoriaSeleccionada }}</h2>
+        </div>
+        <div v-if="juegosFiltrados.length" class="row justify-content-center mb-3">
+            <progress class="col-6" :max="juegos.length" :value="juegosFiltrados.length" :class="progressColor">{{ juegosFiltrados.length }} de {{ juegos.length }}</progress>
+        </div>
+        <div class="row justify-content-center">
+            <h2 class="col-12 text-white mb-4">"Bienvenido"</h2>
+            <div v-for="juego in juegosFiltrados" :key="juego.id" class="col-12 col-sm-6 col-md-4 col-lg-3 my-3 d-flex justify-content-center">
+                <div class="card shadow-lg">
+                    <img class="card-img-top" :src="juego.background_image" :alt="juego.name">
+                    <div class="card-body bg-light">
+                        <h5 class="card-title text-dark">{{ juego.name }}</h5>
+                        <p class="card-text text-dark">ID: {{ juego.id }}</p>
+                        <p class="card-text text-dark">Género: {{ juego.genres[0].name }}</p>
+                        <p class="card-text text-dark">Fecha de lanzamiento: {{ juego.released }}</p>
+                        <p class="card-text text-dark">Calificación: {{ juego.rating }}</p>
+                        <p class="card-text text-dark">Precio: $ {{ juego.precioUnitario }}</p>
+                        
+                        <button @click="verMas(juego)" class="btn btn-outline-danger">
+                            Ver más
+                        </button>
+                        <button @click="agregarAlCarrito(juego)" class="btn btn-warning">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-center text-white py-2">
+        <span class="h2">El camino del guerrero comienza...</span>
+        <h6 class="desarrollador">😇 Angeles Alimonados🍋 &copy;2024</h6>
+    </footer>
+
+    <script src="./js/vue3.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/funciones.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descripción del Videojuego</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+
+<body>
+    <header class="heades text-center text-white py-3">
+        <span class="h2">Sumergete aun mas..</span>
+        <button class="btn btn-secondary mx-2 my-2" onclick="window.location.href='index.html';">Ir al Inicio</button>
+    </header>
+
+    <section class="container-fluid text-center" id="descripcion-contenedor">
+        <div v-if="juego">
+            <h2 class="text-white">{{ juego.name }}</h2>
+            <img :src="juego.background_image" :alt="juego.name" class="img-fluid mb-4">
+            <p class="text-dark">{{ juego.description }}</p>
+            <p class="text-dark">Precio $ {{ juego.precioUnitario }}.00</p>
+            <div v-if="juego.screenshots">
+                <h4 class="mt-4 text-white">Capturas de pantalla:</h4>
+                <div class="d-flex justify-content-center flex-wrap">
+                    <img v-for="screenshot in juego.screenshots" :src="screenshot.image" :alt="`Screenshot ${juego.name}`" class="screenshot-img mx-2 my-2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-center text-white py-2">
+        <span class="h2">Listo para la Aventura</span>
+        <h6 class="desarrollador">😇 Angeles Alimonados🍋  &copy;2024</h6>
+    </footer>
+
+    <script src="./js/vue3.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/funcionesDescripcion.js"></script>
+</body>
+
+</html>

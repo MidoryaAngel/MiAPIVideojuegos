@@ -1,0 +1,197 @@
+
+header{
+    background-color:rgb(179, 14, 14) ;
+    font-family: "Permanent Marker", cursive;
+    font-weight: 400;
+    font-style: normal;
+      
+    
+}
+
+#icono{
+    border-radius: 50%;
+}
+
+/*#filtros1{
+    background-color: #4c4f6c;
+}
+
+/* Fondo de la sección con imagen alusiva a los videojuegos */
+.indice {
+    background: url('../images/Patron.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 20px 0;
+    color: #fff;
+    background-attachment: fixed;
+}
+
+.indCarrito {
+    background: url('../images/ControlRoto.webp') no-repeat center center fixed;
+    background-size: cover;
+    padding: 20px 0;
+    color: #fff;
+}
+
+/* Títulos */
+h2 {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Imágenes dentro de las tarjetas */
+img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: top center; /* Enfoca la cara y parte del cuerpo */
+    border-radius: 5px;
+}
+
+/* Tarjetas */
+.card {
+    margin: 0 auto;
+    border: 2px solid #4c4f6c; /* Amarillo */
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color:rgb(179, 14, 14) ; /* Rojo al hacer hover */
+}
+
+/* Botones */
+button {
+    font-size: 1rem;
+    font-weight: bold;
+    border: 2px solid #1ce544;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+    padding: 8px 12px;
+}
+
+button:hover {
+    background-color: #25a53d;
+    color: #fff;
+}
+
+/* Botón de volver arriba */
+#btnVolverArriba {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #dc0b0b;
+    color: white;
+    border: none;
+    border-radius: 40%;
+    padding: 15px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+#btnVolverArriba:hover {
+    background-color:#ffc107;
+}
+
+/* Usuario icono */
+.user-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px; /* Mover a la derecha */
+    width: 60px; /* Hacer más grande */
+    height: 60px; /* Hacer más grande */
+}
+#correo{
+    position: absolute;
+    top: 25px;
+    right: 75px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #ffc107;
+    width: 20%; /* Reducir tamaño en un 50% */ /* Centrar la caja de filtrado */
+
+}
+
+/* Barra de progreso con cambio de color */
+progress {
+    width: 50%; /* Reducir el tamaño al 50% */
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+}
+
+progress[value]::-webkit-progress-value {
+    border-radius: 5px;
+}
+
+progress.low::-webkit-progress-value {
+    background-color: rgb(59, 48, 53);
+}
+
+progress.medium::-webkit-progress-value {
+    background-color: rgb(177, 9, 146);
+}
+
+progress.high::-webkit-progress-value {
+    background-color: rgb(179, 14, 14);
+}
+
+/* Footer */
+footer {
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    padding: 10px 0;
+}
+
+/* Espacio de filtrado */
+.filtros {
+    background-color: rgba(194, 18, 18, 0.496); /* Azul transparente */
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #ffc107;
+    width: 50%; /* Reducir tamaño en un 50% */
+    margin: 0 auto; /* Centrar la caja de filtrado */
+}
+
+.filtros h4 {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Inputs de filtrado */
+.filtros input, .filtros select {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px; /* Ajustar el tamaño de la fuente del texto */
+    width: 100%; /* Asegurar que los inputs ocupen el 100% del ancho */
+}
+
+.filtros input::placeholder, .filtros select::placeholder {
+    font-size: 12px; /* Ajustar el tamaño de la fuente del placeholder */
+    color: #888; /* Color del placeholder */
+}
+
+.filtros input:focus, .filtros select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Capturas de pantalla */
+.screenshot-img {
+    width: 100px;
+    height: auto;
+    margin: 5px;
+}

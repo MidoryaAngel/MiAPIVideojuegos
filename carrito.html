@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+
+<body>
+    <header class="headCar text-center text-white py-3">
+        <span class="h2">🛒 Carrito de Compras</span>
+        <button class="btn btn-secondary mx-2 my-2" onclick="window.location.href='index.html';">Ir al Inicio</button>
+    </header>
+
+    <section class="indCarrito container-fluid text-center" id="carrito-contenedor">
+        <div class="row justify-content-center mt-5">
+            <h2 class="col-12 text-white mb-4">Tus Adquisiciones</h2>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr class="bg-dark text-white">
+                        <th>Nombre del Juego</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Total</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item, index) in carrito" :key="item.id">
+                        <td class="text-white">{{ item.name }}</td>
+                        <td>
+                            <button @click="item.cantidad++" class="btn btn-sm btn-warning">+</button>
+                            <input type="number" v-model.number="item.cantidad" class="form-control d-inline-block w-25">
+                            <button @click="item.cantidad--" :disabled="item.cantidad == 0" class="btn btn-sm btn-danger">-</button>
+                        </td>
+                        <td class="text-white">{{ item.precioUnitario.toFixed(2) }}</td>
+                        <td class="text-white">{{ calcularTotalItem(item).toFixed(2) }}</td>
+                        <td>
+                            <button @click="eliminarDelCarrito(index)" class="btn btn-sm btn-danger">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"><strong class="text-white">Subtotal:</strong></td>
+                        <td colspan="2" class="text-white">{{ calcularSubtotal.toFixed(2) }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><strong class="text-white">IVA (16%):</strong></td>
+                        <td colspan="2" class="text-white">{{ calcularIVA.toFixed(2) }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><strong class="text-white">Total:</strong></td>
+                        <td colspan="2" class="text-white">{{ calcularTotal.toFixed(2) }}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-center text-white py-2">
+        <span class="h2">Disfruta de tu Videojuego</span>
+        <h6 class="desarrollador">😇 Angeles Alimonados🍋  &copy;2024</h6>
+    </footer>
+
+    <script src="./js/vue3.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/funcionesCarrito.js"></script>
+</body>
+
+</html>
